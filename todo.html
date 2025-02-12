@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="todo.css" />
+    <title>Document</title>
+    <script src="todo.js" defer></script>
+  </head>
+
+  <body>
+    <div class="bigbox">
+      <h1>Todo List</h1>
+
+      <div class="textbox">
+        <div class="texboxarea">
+          <input
+            type="text"
+            id="task"
+            name="task"
+            placeholder="Add Your Task Here"
+            size=""
+          />
+        </div>
+        <div class="buttonarea">
+          <button class="button b1" onclick="getValue()">+</button>
+        </div>
+      </div>
+
+      <div class="taskbox">
+        <div class="task">
+          <ol id="lst">
+            <!-- <li>
+              <div class="a1">T1</div>
+              <div class="a2">
+                <button class="button b2" type="button">edit</button>
+                <button class="button b2" type="button">x</button>
+              </div>
+            </li> -->
+          </ol>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
