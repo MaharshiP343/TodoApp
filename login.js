@@ -2,18 +2,18 @@ function Getdata(event) {
   event.preventDefault();
   console.log("hi");
 
-  let fname = document.getElementById("fname");
-  let lname = document.getElementById("lname");
-  let phno = document.getElementById("phno");
-  let gmail = document.getElementById("gmail");
-  let pass = document.getElementById("pass");
-  let username = document.getElementById("username");
+  let fname = document.getElementById("fname").value;
+  let lname = document.getElementById("lname").value;
+  let phno = document.getElementById("phno").value;
+  let gmail = document.getElementById("gmail").value;
+  let pass = document.getElementById("pass").value;
+  let username = document.getElementById("username").value;
   console.log("hi");
 
-  console.log("Fname:", fname.value);
-  console.log("Lname:", lname.value);
-  console.log("Ph No:", phno.value);
-  console.log("Email:", gmail.value);
-  console.log("Password:", pass.value);
-  console.log("Username:", username.value);
+  console.log("Fname:", fname);
+  console.log("Lname:", lname);
+  console.log("Ph No:", phno);
+  console.log("Email:", gmail);
+  console.log("Password:", pass);
+  console.log("Username:", username);
 }
