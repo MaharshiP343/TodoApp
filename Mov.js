@@ -9,10 +9,7 @@
 //   });
 
 const xhttpr = new XMLHttpRequest();
-xhttpr.open(
-  "GET",""
-  true
-);
+xhttpr.open("GET", "", true);
 xhttpr.send();
 xhttpr.onload = () => {
   if (xhttpr.status === 200) {
