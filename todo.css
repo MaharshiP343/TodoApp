@@ -93,3 +93,7 @@ h1 {
   flex-direction: row;
   align-items: center;
 }
+
+.Mov {
+  padding: 10px;
+}
