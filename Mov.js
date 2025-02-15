@@ -14,7 +14,7 @@ xhttpr.send();
 xhttpr.onload = () => {
   if (xhttpr.status === 200) {
     const response = JSON.parse(xhttpr.response);
-    console.log("Data received:", ponse.results[1]);
+    console.log("Data received:", reponse.results[1]);
     // Process the response data here
     let m1obj = document.getElementById("m1");
 
