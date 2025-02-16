@@ -9,12 +9,12 @@
 //   });
 
 const xhttpr = new XMLHttpRequest();
-xhttpr.open("GET", "", true);
+xhttpr.open("GET", true);
 xhttpr.send();
 xhttpr.onload = () => {
   if (xhttpr.status === 200) {
     const response = JSON.parse(xhttpr.response);
-    console.log("Data received:", reponse.results[1]);
+    console.log("Data received:", response.results[1]);
     // Process the response data here
     let m1obj = document.getElementById("m1");
 
@@ -23,15 +23,52 @@ xhttpr.onload = () => {
     response.results.map(myFunction);
 
     function myFunction(i) {
-      console.log(i.original_title);
-      console.log(i.popularity);
-      console.log(i.original_language);
+      title = i.original_title;
+      pop = i.popularity;
+      lang = i.original_language;
+      img = i.poster_path;
+      //for img = https://image.tmdb.org/t/p/w500/
+      // https://image.tmdb.org/t/p/w500/aLVkiINlIeCkcZIzb7XHzPYgO6L.jpg
       // m1obj.innerHTML += i.original_title;
       // m1obj.innerHTML += i.popularity;
       // m1obj.innerHTML += i.original_language;
+      document.createElement(".");
     }
   } else {
     // Handle error
     console.error("There was a problem with the fetch operation:", error);
   }
 };
+
+let slideIndex = 1;
+showSlides(slideIndex);
+
+// Next/previous controls
+function plusSlides(n) {
+  showSlides((slideIndex += n));
+}
+
+// Thumbnail image controls
+function currentSlide(n) {
+  showSlides((slideIndex = n));
+}
+
+function showSlides(n) {
+  let i;
+  let slides = document.getElementsByClassName("mySlides");
+  let dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {
+    slideIndex = 1;
+  }
+  if (n < 1) {
+    slideIndex = slides.length;
+  }
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex - 1].style.display = "block";
+  dots[slideIndex - 1].className += " active";
+}
