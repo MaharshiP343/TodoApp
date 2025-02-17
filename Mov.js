@@ -25,49 +25,77 @@ xhttpr.onload = () => {
       title = i.original_title;
       pop = i.popularity;
       lang = i.original_language;
-      img = i.poster_path;
+      imgscr = i.poster_path;
+      over = i.overview;
+      vote = i.vote_average;
+      release = i.release_date;
+
+      let M = document.getElementById("MB");
+
       //for img = https://image.tmdb.org/t/p/w500/
       // https://image.tmdb.org/t/p/w500/aLVkiINlIeCkcZIzb7XHzPYgO6L.jpg
       // m1obj.innerHTML += i.original_title;
       // m1obj.innerHTML += i.popularity;
       // m1obj.innerHTML += i.original_language;
-      document.createElement(".");
+      const lstobj = document.createElement("li");
+      //lstobj.textContent = title + <br> + lang;
+      // M.appendChild(lstobj);
+
+      let img = document.createElement("img");
+      img.className = "imgcss";
+      img.src = "https://image.tmdb.org/t/p/w500/" + imgscr;
+      lstobj.appendChild(img);
+
+      let d = document.createElement("div");
+      d.className = "container";
+      let d2 = document.createElement("div");
+      d2.className = "bottom-left";
+      let d3 = document.createElement("div");
+      d3.className = "top-right";
+      let d4 = document.createElement("div");
+      d4.className = "bottom-right";
+
+      //
+      let d5 = document.createElement("div");
+      d5.className = "top-left";
+
+      //
+
+      d.appendChild(lstobj);
+      d.appendChild(d2);
+      d.appendChild(d3);
+      d.appendChild(d4);
+      d.appendChild(d5);
+
+      d2.innerText = over;
+      d3.innerText = release;
+      d4.innerText = vote;
+      d5.innerText = title;
+
+      M.append(d);
+
+      // let ptitle = document.createElement("p");
+      // ptitle.className = "all";
+      // ptitle.textContent = title;
+
+      // let plang = document.createElement("p");
+      // ptitle.className = "pall";
+      // plang.textContent = lang;
+
+      // let ppop = document.createElement("p");
+      // popp.className = "all";
+      // ppop.textContent = pop;
+
+      // lstobj.appendChild(ptitle);
+      // lstobj.appendChild(plang);
+      // lstobj.appendChild(ppop);
+
+      // ptext.append(document.writeln(title));
+      // ptext.append(document.writeln(lang));
+      // ptext.append(document.writeln(pop));
     }
   } else {
     // Handle error
     console.error("There was a problem with the fetch operation:", error);
   }
 };
-
-let slideIndex = 1;
-showSlides(slideIndex);
-
-// Next/previous controls
-function plusSlides(n) {
-  showSlides((slideIndex += n));
-}
-
-// Thumbnail image controls
-function currentSlide(n) {
-  showSlides((slideIndex = n));
-}
-
-function showSlides(n) {
-  let i;
-  let slides = document.getElementsByClassName("mySlides");
-  let dots = document.getElementsByClassName("dot");
-  if (n > slides.length) {
-    slideIndex = 1;
-  }
-  if (n < 1) {
-    slideIndex = slides.length;
-  }
-  for (i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none";
-  }
-  for (i = 0; i < dots.length; i++) {
-    dots[i].className = dots[i].className.replace(" active", "");
-  }
-  slides[slideIndex - 1].style.display = "block";
-  dots[slideIndex - 1].className += " active";
-}
