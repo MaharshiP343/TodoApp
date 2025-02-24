@@ -23,11 +23,7 @@ body {
   padding: 30px;
   margin: 70px;
   display: grid;
-  grid-template:
-    "li li li li li"
-    "li li li li li"
-    "li li li li li"
-    "li li li li li";
+  grid-template-columns: repeat(4, 1fr);
 }
 .MainBox > li {
   background-color: #f1f1f1;
@@ -51,12 +47,16 @@ body {
   position: relative;
   text-align: center;
   color: black;
-  /* border: 2px solid red; */
-  padding: 10%;
-  height: 93vh;
+  border: 2px solid red;
+  margin: 10%;
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+
+  /* height: 70vh; */
 }
 
-.bottom-left {
+/* .bottom-left {
   position: relative;
   bottom: 10 px;
   left: 16px;
@@ -80,4 +80,74 @@ body {
   position: absolute;
   top: 8px;
   left: 16px;
+} */
+
+.top {
+  /* display: flex; */
+  width: 100%;
+  height: auto;
+  /* flex-direction: row; */
+  /* border: 2px solid red; */
+}
+.top-right {
+  float: right;
+}
+.top-left {
+  float: left;
+}
+.bottom {
+  width: 100%;
+  /* display: flex;
+  flex-direction: column; */
+  /* border: 2px solid red; */
+}
+
+.bottom-left {
+  margin-top: 7%;
+
+  /* overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
+  line-height: 1.5em;
+  max-height: 4.5em; */
+
+  /* overflow: hidden; */
+
+  white-space: nowrap;
+  width: 259px;
+  /* width: 232px; */
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  position: relative;
+  line-height: 1.5em;
+  max-height: 4.5em;
+  bottom: 22px;
+  /* left: 16px; */
+  /* white-space: nowrap;
+  width: 50px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  border: 1px solid #000000;
+  line-height: 1.5em;
+  max-height: 4.5em; */
+  bottom: 0px;
+  padding-top: 14px;
+  border-top: 2px solid black;
+}
+
+.bottom-right {
+  height: 40px;
+  width: 40px;
+  float: right;
+  margin-right: 5%;
+  border: 2px solid red;
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+  background-color: blanchedalmond;
+  position: relative;
+  bottom: 62px;
 }

@@ -8,7 +8,12 @@
 //   });
 
 const xhttpr = new XMLHttpRequest();
-xhttpr.open("GET", true);
+xhttpr.open(
+  "GET",
+  "https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc&with_release_type=2|3&release_date.gte={min_date}&release_date.lte={max_date}&api_key=" +
+    API_MOVIE,
+  true
+);
 xhttpr.send();
 xhttpr.onload = () => {
   if (xhttpr.status === 200) {
@@ -37,7 +42,7 @@ xhttpr.onload = () => {
       // m1obj.innerHTML += i.original_title;
       // m1obj.innerHTML += i.popularity;
       // m1obj.innerHTML += i.original_language;
-      const lstobj = document.createElement("li");
+      const lstobj = document.createElement("div");
       //lstobj.textContent = title + <br> + lang;
       // M.appendChild(lstobj);
 
@@ -48,29 +53,37 @@ xhttpr.onload = () => {
 
       let d = document.createElement("div");
       d.className = "container";
+
+      let t1 = document.createElement("div");
+      t1.className = "top";
+      let m1 = document.createElement("div");
+      m1.className = "middle";
+      let b1 = document.createElement("div");
+      b1.className = "bottom";
+
       let d2 = document.createElement("div");
-      d2.className = "bottom-left";
+      d2.className = "bottom-left"; //overview
       let d3 = document.createElement("div");
-      d3.className = "top-right";
+      d3.className = "top-right"; // release
       let d4 = document.createElement("div");
-      d4.className = "bottom-right";
-
-      //
+      d4.className = "bottom-right"; // vote
       let d5 = document.createElement("div");
-      d5.className = "top-left";
+      d5.className = "top-left"; //name
 
-      //
-
-      d.appendChild(lstobj);
-      d.appendChild(d2);
-      d.appendChild(d3);
-      d.appendChild(d4);
-      d.appendChild(d5);
+      m1.appendChild(lstobj);
+      t1.appendChild(d3);
+      t1.appendChild(d5);
+      b1.appendChild(d2);
+      b1.appendChild(d4);
 
       d2.innerText = over;
       d3.innerText = release;
       d4.innerText = vote;
       d5.innerText = title;
+
+      d.append(t1);
+      d.append(m1);
+      d.append(b1);
 
       M.append(d);
 
