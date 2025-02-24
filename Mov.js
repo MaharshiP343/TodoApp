@@ -1,17 +1,17 @@
-// fetch(
-// )
-//   .then((data) => {
-//     console.log("Data received:", data);
-//   })
-//   .catch((error) => {
-//     console.error("There was a problem with the fetch operation:", error);
-//   });
+//env try
+// console.log("hi", process.env);
+// require("dotenv").config();
+// console.log("hi", process.env);
+
+import { API_MOVIE_KEY } from "./keys";
+
+console.log("Hi", API_MOVIE_KEY); // Output: Hello, world!
 
 const xhttpr = new XMLHttpRequest();
 xhttpr.open(
   "GET",
   "https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc&with_release_type=2|3&release_date.gte={min_date}&release_date.lte={max_date}&api_key=" +
-    API_MOVIE,
+    process.env.API_MOVIE_KEY,
   true
 );
 xhttpr.send();
