@@ -3,15 +3,16 @@
 // require("dotenv").config();
 // console.log("hi", process.env);
 
-import { API_MOVIE_KEY } from "./keys";
+// import { API_MOVIE_KEY } from "./keys";
+let API_MOVIE_KEY = "359744bb5c3efbf6336f333857bf59ca";
 
-console.log("Hi", API_MOVIE_KEY); // Output: Hello, world!
+// console.log("Hi", API_MOVIE_KEY); // Output: Hello, world!
 
 const xhttpr = new XMLHttpRequest();
 xhttpr.open(
   "GET",
   "https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc&with_release_type=2|3&release_date.gte={min_date}&release_date.lte={max_date}&api_key=" +
-    process.env.API_MOVIE_KEY,
+    API_MOVIE_KEY,
   true
 );
 xhttpr.send();
